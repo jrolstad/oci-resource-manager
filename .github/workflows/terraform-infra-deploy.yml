@@ -27,8 +27,7 @@ jobs:
 
       - name: Write Key File
         run: |
-          mkdir ~/.oci
-          echo "${{secrets.AUTH_KEYFILE}}" >> ~/.oci/key.pem
+          echo "${{secrets.AUTH_KEYFILE}}" >> ./oci-key.pem
 
       - name: Write tfvars file
         run: |
@@ -38,7 +37,7 @@ jobs:
           echo 'root_compartment_id="${{secrets.ROOT_COMPARTMENT_ID}}"' >> ./prd.tfvars
           echo 'user_id="${{secrets.USER_ID}}"' >> ./prd.tfvars
           echo 'auth_fingerprint="${{secrets.AUTH_FINGERPRINT}}"' >> ./prd.tfvars
-          echo 'auth_keyfile="~/.oci/key.pem"' >> ./prd.tfvars
+          echo 'auth_keyfile="./oci-key.pem"' >> ./prd.tfvars
 
       - name: Terraform Apply
         run: terraform apply -input=false -auto-approve -no-color -var-file=./prd.tfvars
