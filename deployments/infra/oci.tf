@@ -6,7 +6,6 @@ terraform {
     }
   }
   backend "http" {
-    address       = var.backend_state_location
     update_method = "PUT"
   }
 }

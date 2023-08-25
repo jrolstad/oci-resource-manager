@@ -3,6 +3,11 @@ variable "tenant_id" {
   type        = string
 }
 
+variable "root_compartment_id" {
+  description = "Root Compartment Id for the tenancy"
+  type        = string
+}
+
 variable "user_id" {
   description = "User the IaC process is running as"
   type        = string
@@ -23,7 +28,13 @@ variable "auth_keyfile" {
   type        = string
 }
 
-variable "backend_state_location" {
-  description = "Locations of the statefile"
+variable "service_name" {
+  description = "Name of the service"
+  type        = string
+  default     = "oci-resource-manager"
+}
+
+variable "environment" {
+  description = "What type of environment (dev,tst,prd)"
   type        = string
 }
