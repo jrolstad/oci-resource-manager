@@ -7,8 +7,7 @@ resource "oci_nosql_table" "resource_action_schedule" {
   table_limits {
     capacity_mode      = "ON_DEMAND"
     max_storage_in_gbs = 1
-
-    max_read_units  = 0
-    max_write_units = 0
+    max_read_units     = 0
+    max_write_units    = 0
   }
 }
